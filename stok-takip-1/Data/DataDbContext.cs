@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using stok_takip_1.Entites;
+using stok_takip_1.Entities;
 using System.Collections.Generic;
 
 namespace stok_takip_1.Data

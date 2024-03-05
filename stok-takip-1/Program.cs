@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using stok_takip_1.Data;
 

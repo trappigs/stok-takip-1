@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace stok_takip_1.Entites
+namespace stok_takip_1.Entities
 {
     public class Suppliers
     {

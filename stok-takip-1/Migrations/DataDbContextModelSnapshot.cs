@@ -22,7 +22,7 @@ namespace stok_takip_1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("stok_takip_1.Entites.Categories", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Categories", b =>
                 {
                     b.Property<int>("Category_id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace stok_takip_1.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.OrderDetails", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.OrderDetails", b =>
                 {
                     b.Property<int>("Order_detail_id")
                         .ValueGeneratedOnAdd()
@@ -78,7 +78,7 @@ namespace stok_takip_1.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.Orders", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Orders", b =>
                 {
                     b.Property<int>("Order_id")
                         .ValueGeneratedOnAdd()
@@ -112,7 +112,7 @@ namespace stok_takip_1.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.Product_Brands", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Product_Brands", b =>
                 {
                     b.Property<int>("Brand_id")
                         .ValueGeneratedOnAdd()
@@ -132,7 +132,7 @@ namespace stok_takip_1.Migrations
                     b.ToTable("Product_Brands");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.Products", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Products", b =>
                 {
                     b.Property<int>("Product_id")
                         .ValueGeneratedOnAdd()
@@ -187,7 +187,7 @@ namespace stok_takip_1.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.Suppliers", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Suppliers", b =>
                 {
                     b.Property<int>("Supplier_id")
                         .ValueGeneratedOnAdd()
@@ -220,15 +220,15 @@ namespace stok_takip_1.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.OrderDetails", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.OrderDetails", b =>
                 {
-                    b.HasOne("stok_takip_1.Entites.Orders", "Orders")
+                    b.HasOne("stok_takip_1.Entities.Orders", "Orders")
                         .WithMany()
                         .HasForeignKey("Order_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("stok_takip_1.Entites.Products", "Products")
+                    b.HasOne("stok_takip_1.Entities.Products", "Products")
                         .WithMany()
                         .HasForeignKey("Product_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -239,9 +239,9 @@ namespace stok_takip_1.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.Orders", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Orders", b =>
                 {
-                    b.HasOne("stok_takip_1.Entites.Suppliers", "Suppliers")
+                    b.HasOne("stok_takip_1.Entities.Suppliers", "Suppliers")
                         .WithMany()
                         .HasForeignKey("Supplier_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -250,15 +250,15 @@ namespace stok_takip_1.Migrations
                     b.Navigation("Suppliers");
                 });
 
-            modelBuilder.Entity("stok_takip_1.Entites.Products", b =>
+            modelBuilder.Entity("stok_takip_1.Entities.Products", b =>
                 {
-                    b.HasOne("stok_takip_1.Entites.Product_Brands", "Product_Brands")
+                    b.HasOne("stok_takip_1.Entities.Product_Brands", "Product_Brands")
                         .WithMany()
                         .HasForeignKey("Brand_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("stok_takip_1.Entites.Categories", "Categories")
+                    b.HasOne("stok_takip_1.Entities.Categories", "Categories")
                         .WithMany()
                         .HasForeignKey("Category_id")
                         .OnDelete(DeleteBehavior.Cascade)
