@@ -12,22 +12,24 @@ namespace stok_takip_1.Data.Concrete
             _context = context;
         }
 
-
         public IQueryable<Suppliers> Suppliers => _context.Suppliers;
 
         public void CreateSupplier(Suppliers supplier)
         {
-            throw new NotImplementedException();
+            _context.Suppliers.Add(supplier);
+            _context.SaveChanges();
         }
 
         public void DeleteSupplier(Suppliers supplier)
         {
-            throw new NotImplementedException();
+            _context.Suppliers.Remove(supplier);
+            _context.SaveChanges();
         }
 
         public void UpdateSupplier(Suppliers supplier)
         {
-            throw new NotImplementedException();
+            _context.Suppliers.Update(supplier);
+            _context.SaveChanges();
         }
     }
 }
