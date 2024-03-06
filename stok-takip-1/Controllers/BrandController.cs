@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using stok_takip_1.Data.Abstract;
 using stok_takip_1.Entities;
 using stok_takip_1.Models;
@@ -41,14 +42,41 @@ namespace stok_takip_1.Controllers
         }
 
 
-        public IActionResult Delete()
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var marka = await _brandsRepository.Brands.FirstOrDefaultAsync(m => m.Brand_id == id);
+
+            if (marka == null)
+            {
+                return NotFound();
+            }
+
+            return View(marka);
         }
 
-        public IActionResult Delete(int id)
+        [HttpPost]
+        public async Task<IActionResult> Delete([FromForm] int id)
         {
-            return View();
+            try
+            {
+                var marka = await _brandsRepository.Brands.FirstOrDefaultAsync(m => m.Brand_id == id);
+                if (marka == null)
+                {
+                    return NotFound();
+                }
+                _brandsRepository.DeleteBrand(marka);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Edit()

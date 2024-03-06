@@ -23,8 +23,8 @@
                                 <td>@item.Brand_Name</td>
                                 <td>@item.Brand_Description</td>
                                 <td>
-                                    <a asp-controller="Brand" asp-action="Edit" class="btn btn-primary">Düzenle</a>
-                                    <a asp-controller="Brand" asp-action="Delete" class="btn btn-primary">Sil</a>
+                                    <a asp-controller="Brand" asp-action="Edit" asp-route-id="@item.Brand_id" class="btn btn-primary">Düzenle</a>
+                                    <a asp-controller="Brand" asp-action="Delete" asp-route-id="@item.Brand_id" class="btn btn-primary">Sil</a>
                                 </td>
                             </tr>
                         }

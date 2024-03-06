@@ -17,5 +17,7 @@ namespace stok_takip_1.Entities
         [Display(Name = "Açıklama")]
         public string? Brand_Description { get; set; }
 
+
+
     }
 }
