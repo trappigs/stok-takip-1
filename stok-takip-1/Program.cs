@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using stok_takip_1.Data;
+using stok_takip_1.Data.Abstract;
+using stok_takip_1.Data.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,15 @@ builder.Services.AddDbContext<DataDbContext>(options => {
     var cons = builder.Configuration.GetConnectionString("dene");
     options.UseSqlServer(cons);
 });
+
+builder.Services.AddScoped<IBrandsRepository, EfBrandsRepository>();
+
+
+
+
+
+
+
 
 var app = builder.Build();
 

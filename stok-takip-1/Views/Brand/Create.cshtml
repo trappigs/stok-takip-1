@@ -1,0 +1,33 @@
+﻿@model BrandViewModel
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Post Create</h1>
+            <form action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="BrandName" class="form-label"></label>
+                    <input asp-for="BrandName" class="form-control">
+                    <span asp-validation-for="BrandName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="BrandDescription" class="form-label"></label>
+                    <input asp-for="BrandDescription" class="form-control">
+                    <span asp-validation-for="BrandDescription" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.7.0/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#Content'
+        });
+    </script>
+
+}

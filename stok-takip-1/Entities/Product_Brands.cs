@@ -9,10 +9,12 @@ namespace stok_takip_1.Entities
         public int Brand_id{ get; set; }
 
         // Brand Name boş geçilemez
-        [Required]
+        [Required(ErrorMessage = "Lütfen marka adını giriniz.")]
+        [Display(Name = "Marka Adı")]
         public string Brand_Name { get; set; } = null!;
 
         // Açıklama boş geçilebilir
+        [Display(Name = "Açıklama")]
         public string? Brand_Description { get; set; }
 
     }
