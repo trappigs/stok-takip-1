@@ -1,0 +1,11 @@
+﻿@model Suppliers
+
+<p>
+    <b> @Model.Supplier_name</b> isimli üreticiyi silmek istiyor musunuz?
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" value="@Model.Supplier_id" name="id">
+        <button type="submit" class="btn btn-danger">Evet</button>
+        <a asp-action="Index" class="btn btn-primary">Hayır</a>
+    </form>
+</p>

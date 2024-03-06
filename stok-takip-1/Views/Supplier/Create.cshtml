@@ -1,0 +1,37 @@
+﻿@model SupplierViewModel
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Üretici Ekle</h1>
+            <form action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Supplier_name" class="form-label"></label>
+                    <input asp-for="Supplier_name" class="form-control">
+                    <span asp-validation-for="Supplier_name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Supplier_address" class="form-label"></label>
+                    <input asp-for="Supplier_address" class="form-control">
+                    <span asp-validation-for="Supplier_address" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Supplier_phone" class="form-label"></label>
+                    <input asp-for="Supplier_phone" class="form-control">
+                    <span asp-validation-for="Supplier_phone" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Supplier_email" class="form-label"></label>
+                    <input asp-for="Supplier_email" class="form-control">
+                    <span asp-validation-for="Supplier_email" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>

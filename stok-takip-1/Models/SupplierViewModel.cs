@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace stok_takip_1.Entities
+namespace stok_takip_1.Models
 {
-    public class Suppliers
+    public class SupplierViewModel
     {
-        [Key]
         public int Supplier_id { get; set; }
 
         [Required(ErrorMessage = "Üretici adı alanı gereklidir.")]
@@ -18,7 +18,7 @@ namespace stok_takip_1.Entities
         public string Supplier_address { get; set; } = null!;
 
         [Required(ErrorMessage = "Üretici iletişim numarası alanı gereklidir.")]
-        [StringLength(15,ErrorMessage="Telefon numarası 15 karakterden fazla olamaz.")]
+        [StringLength(15, ErrorMessage = "Telefon numarası 15 karakterden fazla olamaz.")]
         [Display(Name = "Üretici İletişim Numarası")]
         public string Supplier_phone { get; set; } = null!;
 
@@ -27,8 +27,5 @@ namespace stok_takip_1.Entities
         [Display(Name = "Üretici E-Posta")]
         [EmailAddress(ErrorMessage = "E-posta doğru biçimde girilmedi.")]
         public string Supplier_email { get; set; } = null!;
-
-
-
     }
 }

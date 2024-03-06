@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Suppliers>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <a href="/Supplier/Create" class="btn btn-primary">Yeni Üretici Ekle</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Supplier_name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Supplier_address)</th>
+                            <th>@Html.DisplayNameFor(model => model.Supplier_phone)</th>
+                            <th>@Html.DisplayNameFor(model => model.Supplier_email)</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Supplier_name</td>
+                                <td>@item.Supplier_address</td>
+                                <td>@item.Supplier_phone</td>
+                                <td>@item.Supplier_email</td>
+                                <td>
+                                    <a asp-controller="Supplier" asp-action="Edit" asp-route-id="@item.Supplier_id" class="btn btn-primary">Düzenle</a>
+                                    <a asp-controller="Supplier" asp-action="Delete" asp-route-id="@item.Supplier_id" class="btn btn-primary">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

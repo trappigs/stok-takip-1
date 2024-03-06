@@ -15,10 +15,7 @@ builder.Services.AddDbContext<DataDbContext>(options => {
 
 builder.Services.AddScoped<IBrandsRepository, EfBrandsRepository>();
 builder.Services.AddScoped<ICategoriesRepository, EfCategoriesRepository>();
-
-
-
-
+builder.Services.AddScoped<ISuppliersRepository, EfSuppliersRepository>();
 
 
 

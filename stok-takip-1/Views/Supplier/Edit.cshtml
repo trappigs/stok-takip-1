@@ -1,0 +1,40 @@
+﻿@model SupplierViewModel
+
+<h2>Üretici Bilgisi Güncelle</h2>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Supplier" asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <input type="hidden" asp-for="Supplier_id">
+
+            <div class="mb-3">
+                <label asp-for="Supplier_name" class="form-label">Üretici Adı</label>
+                <input asp-for="Supplier_name" class="form-control">
+                <span asp-validation-for="Supplier_name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Supplier_address" class="form-label">Üretici Adresi</label>
+                <input asp-for="Supplier_address" class="form-control">
+                <span asp-validation-for="Supplier_address" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Supplier_phone" class="form-label">Üretici Telefon Numarası</label>
+                <input asp-for="Supplier_phone" class="form-control">
+                <span asp-validation-for="Supplier_phone" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Supplier_email" class="form-label">Üretici E-Posta</label>
+                <input asp-for="Supplier_email" class="form-control">
+                <span asp-validation-for="Supplier_email" class="text-danger"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+</div>
