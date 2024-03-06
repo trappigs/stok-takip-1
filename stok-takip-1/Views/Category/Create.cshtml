@@ -1,0 +1,22 @@
+﻿@model CategoryViewModel
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Kategori Ekle</h1>
+            <form action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Category_Name" class="form-label"></label>
+                    <input asp-for="Category_Name" class="form-control">
+                    <span asp-validation-for="Category_Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Category_Description" class="form-label"></label>
+                    <input asp-for="Category_Description" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
