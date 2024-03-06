@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model BrandViewModel
+
+<h2>Marka Bilgisi Güncelle</h2>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Brand" asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <input type="hidden" asp-for="BrandId">
+
+            <div class="mb-3">
+                <label asp-for="BrandName" class="form-label">Marka Adı</label>
+                <input asp-for="BrandName" class="form-control">
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="BrandDescription" class="form-label">Açıklama</label>
+                <input asp-for="BrandDescription" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+</div>

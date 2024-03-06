@@ -7,12 +7,11 @@ namespace stok_takip_1.Models
         [Display(Name = "ID")]
         public int BrandId { get; set; }
 
-
-        [Required(ErrorMessage = "Lütfen marka adını giriniz.")]
         [Display(Name = "Marka Adı")]
+        [Required(ErrorMessage = "Lütfen marka adını giriniz.")]
         public string BrandName { get; set; } = null!;
 
-        [Display(Name = "Açıklama")]
+        [Display(Name = "Marka Açıklaması")]
         public string? BrandDescription { get; set; }
     }
 }

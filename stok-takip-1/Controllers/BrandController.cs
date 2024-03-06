@@ -36,9 +36,10 @@ namespace stok_takip_1.Controllers
                     Brand_Name = model.BrandName,
                     Brand_Description = model.BrandDescription
                 });
+                return RedirectToAction("Index");
             }
             // Markayı ekledikten sonra markaların listelendiği sayfaya(index) yönlendirme yapılıyor
-            return RedirectToAction("Index");
+            return View();
         }
 
 
@@ -79,15 +80,50 @@ namespace stok_takip_1.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit()
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var marka = _brandsRepository
+                .Brands
+                .Select(k => new BrandViewModel
+                {
+                    BrandId = k.Brand_id,
+                    BrandName = k.Brand_Name,
+                    BrandDescription = k.Brand_Description
+                }).FirstOrDefault(k => k.BrandId == id);
+
+            if (marka == null)
+            {
+                return NotFound();
+            }
+
+            return View(marka);
         }
 
-        public IActionResult Edit(int id)
+        [HttpPost]
+        public IActionResult Edit(int id, BrandViewModel model)
         {
+            if (id != model.BrandId)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _brandsRepository.EditBrand(new Product_Brands()
+                {
+                    Brand_id = model.BrandId,
+                    Brand_Name = model.BrandName,
+                    Brand_Description = model.BrandDescription
+                });
+                return RedirectToAction("Index");
+            }
             return View();
         }
-
     }
 }
